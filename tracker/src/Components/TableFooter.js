@@ -14,7 +14,7 @@ export default function TableFooter({
   const FIRST_PAGE_COLOR_ICON_COLOR =
     pageNumber < 2 ? "grey" : "rgba(7,94,181,0.7)";
   const LAST_PAGE_COLOR_ICON_COLOR =
-    pageNumber > 27 ? "grey" : "rgba(7,94,181,0.7)";
+    pageNumber >= totalPages ? "grey" : "rgba(7,94,181,0.7)";
   const tableFooterData = [
     {
       iconName: "first_page",

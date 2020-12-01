@@ -26,15 +26,15 @@ export default function TableComponent(props) {
           Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
         )
       : setLastPageNumber(0);
-  }, [countryWiseCovidData.length, searchedItemList]);
+  }, [countryWiseCovidData, searchedItemList]);
 
-  // useEffect(() => {
-  //   searchedItemList.length > 0
-  //     ? setLastPageNumber(Math.ceil(searchedItemList.length / DATA_PER_PAGE))
-  //     : setLastPageNumber(
-  //         Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
-  //       );
-  // }, [searchedItemList]);
+  useEffect(() => {
+    searchedItemList.length > 0
+      ? setLastPageNumber(Math.ceil(searchedItemList.length / DATA_PER_PAGE))
+      : setLastPageNumber(
+          Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
+        );
+  }, [searchedItemList]);
 
   useEffect(() => {
     countryWiseCovidData.length > 0 ? setPageNumber(1) : setPageNumber(0);
@@ -87,7 +87,7 @@ export default function TableComponent(props) {
         type: "Search",
         payload: e.target.value.toUpperCase(),
       });
-    }, 1100);
+    }, 100);
   };
 
   return (
@@ -103,8 +103,14 @@ export default function TableComponent(props) {
         />
         <div className="tbl-content">
           <table cellPadding="0" cellSpacing="0" border="0">
-            <tbody>
-              {
+            {searchedItemList.length === 0 && searchCountry.length !== 0 ? (
+              <tbody style={{ padding: "20%" }}>
+                <td>
+                  <tr style={{ color: "red" }}>Invalid Country</tr>
+                </td>
+              </tbody>
+            ) : (
+              <tbody>
                 <TableData
                   countryWiseCovidData={
                     searchedItemList?.length
@@ -113,8 +119,8 @@ export default function TableComponent(props) {
                   }
                   pageNumber={pageNumber}
                 />
-              }
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>
