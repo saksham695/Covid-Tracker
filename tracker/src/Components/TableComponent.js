@@ -104,10 +104,15 @@ export default function TableComponent(props) {
         <div className="tbl-content">
           <table cellPadding="0" cellSpacing="0" border="0">
             {searchedItemList.length === 0 && searchCountry.length !== 0 ? (
-              <tbody style={{ padding: "20%" }}>
-                <td>
-                  <tr style={{ color: "red" }}>Invalid Country</tr>
-                </td>
+              <tbody>
+                <tr style={{ padding: "20%" }}>
+                  <td
+                    className="table-data"
+                    style={{ color: "red", padding: "35%", borderBottom: 0 }}
+                  >
+                    Invalid Country
+                  </td>
+                </tr>
               </tbody>
             ) : (
               <tbody>
