@@ -20,8 +20,8 @@ export default function TableComponent(props) {
   const DATA_PER_PAGE = 7;
 
   useEffect(() => {
-    countryWiseCovidData.length > 0 ? setPageNumber(1) : setPageNumber(0);
-    countryWiseCovidData.length > 0
+    countryWiseCovidData.length ? setPageNumber(1) : setPageNumber(0);
+    countryWiseCovidData.length
       ? setLastPageNumber(
           Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
         )
@@ -34,7 +34,7 @@ export default function TableComponent(props) {
       : setLastPageNumber(
           Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
         );
-  }, [searchedItemList]);
+  }, [searchedItemList, searchCountry]);
 
   useEffect(() => {
     countryWiseCovidData.length > 0 ? setPageNumber(1) : setPageNumber(0);
