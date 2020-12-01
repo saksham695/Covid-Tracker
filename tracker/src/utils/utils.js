@@ -63,3 +63,5 @@ export const compareByTotalDeaths = (country1, country2) => {
   }
   return 0;
 };
+
+export const tableHeaders = ["Country", "Confirmed", "Recovered", "Death"];

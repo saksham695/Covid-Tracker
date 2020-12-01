@@ -4,29 +4,37 @@ import { useStateValue } from "../StateProvider";
 import TableFooter from "./TableFooter";
 
 import "./TableComponent.css";
+import TableData from "./TableData";
+import { tableHeaders } from "../utils/utils";
 
 export default function TableComponent(props) {
   const [
-    {
-      countryWiseCovidData,
-      numberOfConfirmedWiseData,
-      numberOfRecoveredWiseData,
-      numberOfDeathsWiseData,
-      globalCases,
-    },
+    { countryWiseCovidData, searchedItemList },
     dispatch,
   ] = useStateValue();
   const [pageNumber, setPageNumber] = useState(0);
+  const [lastPage, setLastPageNumber] = useState(0);
+  const [searchCountry, setSearchCountry] = useState("");
   const [sortedHeaderName, setSortedHeaderName] = useState("");
   const FIRST_PAGE = 1;
   const DATA_PER_PAGE = 7;
-  const LAST_PAGE = Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE);
-
-  console.log(countryWiseCovidData[10]);
 
   useEffect(() => {
     countryWiseCovidData.length > 0 ? setPageNumber(1) : setPageNumber(0);
-  }, [countryWiseCovidData.length]);
+    countryWiseCovidData.length > 0
+      ? setLastPageNumber(
+          Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
+        )
+      : setLastPageNumber(0);
+  }, [countryWiseCovidData.length, searchedItemList]);
+
+  // useEffect(() => {
+  //   searchedItemList.length > 0
+  //     ? setLastPageNumber(Math.ceil(searchedItemList.length / DATA_PER_PAGE))
+  //     : setLastPageNumber(
+  //         Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
+  //       );
+  // }, [searchedItemList]);
 
   useEffect(() => {
     countryWiseCovidData.length > 0 ? setPageNumber(1) : setPageNumber(0);
@@ -41,7 +49,7 @@ export default function TableComponent(props) {
   };
 
   const incrementPageNumber = (value = "") => {
-    if (pageNumber > LAST_PAGE) {
+    if (pageNumber > lastPage - 1) {
       setLastPage();
     } else setPageNumber(pageNumber + 1);
   };
@@ -57,7 +65,7 @@ export default function TableComponent(props) {
   };
 
   const setLastPage = (value = "") => {
-    setPageNumber(parseInt(LAST_PAGE));
+    setPageNumber(parseInt(lastPage));
   };
 
   const setSearchedPage = (value = "") => {
@@ -66,9 +74,28 @@ export default function TableComponent(props) {
     } else value && setPageNumber(parseInt(value));
   };
 
-  const tableHeaders = ["Country", "Confirmed", "Recovered", "Death"];
+  console.log(
+    "SEARCHED ITEM",
+    searchedItemList.length,
+    countryWiseCovidData.length
+  );
+
+  const onSearchCountry = (e) => {
+    setSearchCountry(e.target.value.toUpperCase());
+    setTimeout(() => {
+      dispatch({
+        type: "Search",
+        payload: e.target.value.toUpperCase(),
+      });
+    }, 1100);
+  };
+
   return (
     <div className="table-container" style={{ height: "60%", width: "40%" }}>
+      <SearchBar
+        searchCountry={searchCountry}
+        onSearchCountry={onSearchCountry}
+      />
       <div className="table-data-container">
         <TableHeader
           tableHeaders={tableHeaders}
@@ -77,10 +104,16 @@ export default function TableComponent(props) {
         <div className="tbl-content">
           <table cellPadding="0" cellSpacing="0" border="0">
             <tbody>
-              <TableData
-                countryWiseCovidData={countryWiseCovidData}
-                pageNumber={pageNumber}
-              />
+              {
+                <TableData
+                  countryWiseCovidData={
+                    searchedItemList?.length
+                      ? searchedItemList
+                      : countryWiseCovidData
+                  }
+                  pageNumber={pageNumber}
+                />
+              }
             </tbody>
           </table>
         </div>
@@ -92,49 +125,56 @@ export default function TableComponent(props) {
         setFirstPage={setFirstPage}
         setLastPage={setLastPage}
         setSearchedPage={setSearchedPage}
-        totalPages={LAST_PAGE}
+        totalPages={lastPage}
       />
     </div>
   );
 }
 
-const TableData = ({ countryWiseCovidData = [], pageNumber = 1 }) => {
-  const MAX_VIEWABLE_DATA_PER_PAGE = 7;
-  const startIndexOfData = (pageNumber - 1) * MAX_VIEWABLE_DATA_PER_PAGE;
-  const lastIndexOfData = pageNumber * MAX_VIEWABLE_DATA_PER_PAGE;
-  console.log("<><><", countryWiseCovidData);
+const SearchBar = ({ onSearchCountry, searchCountry = "" }) => {
   return (
-    <>
-      {countryWiseCovidData
-        .slice(startIndexOfData, lastIndexOfData)
-        .map(
-          ({
-            Country,
-            CountryCode,
-            NewConfirmed,
-            TotalConfirmed,
-            TotalDeaths,
-            TotalRecovered,
-          }) => {
-            return (
-              <tr key={CountryCode}>
-                <td
-                  className="table-data"
-                  style={{
-                    color: "rgb(108, 117, 124)",
-                    fontWeight: "600",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {Country}{" "}
-                </td>
-                <td className="table-data">{TotalConfirmed}</td>
-                <td className="table-data">{TotalRecovered}</td>
-                <td className="table-data">{TotalDeaths}</td>
-              </tr>
-            );
-          }
-        )}
-    </>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        height: "5%",
+        padding: "2%",
+      }}
+    >
+      <div
+        style={{
+          height: "100%",
+          backgroundColor: "rgba(108, 117, 124, 0.1)",
+          borderTopLeftRadius: 10,
+          borderBottomLeftRadius: 10,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <i
+          className="material-icons"
+          style={{
+            color: "rgba(108, 117, 124, 0.8)",
+          }}
+        >
+          {" "}
+          search
+        </i>
+      </div>
+      <input
+        type="text"
+        placeholder="Country Name"
+        value={searchCountry}
+        onChange={onSearchCountry}
+        style={{
+          width: "90%",
+          backgroundColor: "rgba(108, 117, 124, 0.1)",
+          border: 0,
+          borderBottomRightRadius: 10,
+          borderTopRightRadius: 10,
+        }}
+      ></input>
+    </div>
   );
 };

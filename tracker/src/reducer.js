@@ -7,22 +7,19 @@ import {
 
 export const initialState = {
   countryWiseCovidData: [],
-  // numberOfConfirmedWiseData: [],
-  // numberOfRecoveredWiseData: [],
-  // numberOfDeathsWiseData: [],
+  searchedItemList: [],
   globalCases: {},
 };
 
 export const reducer = (state, action) => {
   const { payload, type } = action;
-  const { Global = {}, Countries = [] } = payload;
 
   switch (type) {
     case "add":
       return {
         ...state,
-        countryWiseCovidData: Countries,
-        globalCases: Global,
+        countryWiseCovidData: payload.Countries,
+        globalCases: payload.Global,
       };
     case "Confirmed": {
       return {
@@ -46,6 +43,16 @@ export const reducer = (state, action) => {
       return {
         ...state,
         countryWiseCovidData: action.payload.sort(compareCountry),
+      };
+    }
+    case "Search": {
+      return {
+        ...state,
+        searchedItemList:
+          payload.length &&
+          state.countryWiseCovidData.filter((item) =>
+            item.Country.toUpperCase().includes(payload)
+          ),
       };
     }
     default:
