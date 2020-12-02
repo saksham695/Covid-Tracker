@@ -33,7 +33,7 @@ export default function App() {
     globalCases[GlobalCasesKey[0]] +
     globalCases[GlobalCasesKey[1]] +
     globalCases[GlobalCasesKey[2]];
-  const TOTAL_PATIENTS = "Total Patient";
+  const TOTAL_PATIENTS = "Total Patients";
   const COUNTRIES = "countries";
   return (
     <div style={{ height: "100vw", width: "100%" }}>
@@ -48,21 +48,29 @@ export default function App() {
       </div>
 
       <div>
-        <h1 style={{ marginTop: "-23%" }}>WORLD STATISTICS</h1>
+        <h1 style={{ marginTop: "-23%", fontWeight: "bolder" }}>
+          WORLD STATISTICS
+        </h1>
         <div
           style={{
             flexDirection: "row",
             display: "flex",
             justifyContent: "space-around",
-            alignContent: "center",
+            //     alignContent: "center",
+            alignItems: "flex-start",
+            marginTop: "-8%",
           }}
         >
           <div
             className="card-left-container"
             style={{ marginTop: "14%", borderRadius: 20, marginBottom: "2%" }}
           >
-            <h4 className="text-style">{TOTAL_PATIENTS.toUpperCase()}</h4>
-            <h2 className="text-style">{numberWithCommas(totalPatients)}</h2>
+            <h2 className="text-style" style={{ letterSpacing: "10" }}>
+              {TOTAL_PATIENTS.toUpperCase()}
+            </h2>
+            <h1 className="text-style">
+              {totalPatients ? numberWithCommas(totalPatients) : ""}
+            </h1>
           </div>
 
           <div

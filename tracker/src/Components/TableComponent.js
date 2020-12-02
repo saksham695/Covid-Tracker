@@ -89,7 +89,10 @@ export default function TableComponent(props) {
   };
 
   return (
-    <div className="table-container" style={{ height: "100%", width: "80%" }}>
+    <div
+      className="table-container"
+      style={{ height: "100%", width: "80%", marginBottom: "5%" }}
+    >
       <SearchBar
         searchCountry={searchCountry}
         onSearchCountry={onSearchCountry}

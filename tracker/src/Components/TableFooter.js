@@ -75,7 +75,7 @@ export default function TableFooter({
     <div
       style={{
         marginTop: "1%",
-        height: "6%",
+        height: 50,
         display: "flex",
         paddingTop: "2%",
         paddingBottom: "1%",
