@@ -65,3 +65,36 @@ export const compareByTotalDeaths = (country1, country2) => {
 };
 
 export const tableHeaders = ["Country", "Confirmed", "Recovered", "Death"];
+
+export const getBackgroundColor = (casesKey) => {
+  return casesKey === "TotalDeaths"
+    ? "rgba(254,0,65)"
+    : casesKey === "TotalRecovered"
+    ? "rgba(0,166,82)"
+    : "rgba(12,69,131)";
+};
+
+/**
+ *  function to cover number in comma separated format
+ * @param {*} x will be number
+ */
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+export const GlobalCasesKey = [
+  "TotalConfirmed",
+  "TotalRecovered",
+  "TotalDeaths",
+];
+export const GlobalCasesHeading = [
+  "Total Confirmed",
+  "Total Recovered",
+  "Total Deaths",
+];
+
+export const chartData = [
+  { title: "Confirmed", value: 10, color: "rgba(12,69,131,0.1)" },
+  { title: "Recovered", value: 15, color: "rgba(0,166,82,0.1)" },
+  { title: "Deaths", value: 20, color: "rgba(254,0,65,0.1)" },
+];

@@ -1,6 +1,5 @@
 .icon-container{
-    
-        width: 20%;
+      width: 20%;
         height: 80%;
         background-color:  rgba(21,29,50,0.2);
         margin-left: 1.5%;
@@ -12,5 +11,6 @@
        
       }
 .icon-container:hover{
-    background-color: "white";
+  background-color:  rgba(21, 29, 50, 0.6);
+    
 }

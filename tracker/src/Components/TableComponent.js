@@ -20,8 +20,10 @@ export default function TableComponent(props) {
   const DATA_PER_PAGE = 7;
 
   useEffect(() => {
-    countryWiseCovidData.length ? setPageNumber(1) : setPageNumber(0);
-    countryWiseCovidData.length
+    countryWiseCovidData && countryWiseCovidData.length
+      ? setPageNumber(1)
+      : setPageNumber(0);
+    countryWiseCovidData && countryWiseCovidData.length
       ? setLastPageNumber(
           Math.ceil(countryWiseCovidData.length / DATA_PER_PAGE)
         )
@@ -37,7 +39,9 @@ export default function TableComponent(props) {
   }, [searchedItemList, searchCountry]);
 
   useEffect(() => {
-    countryWiseCovidData.length > 0 ? setPageNumber(1) : setPageNumber(0);
+    countryWiseCovidData && countryWiseCovidData.length > 0
+      ? setPageNumber(1)
+      : setPageNumber(0);
   }, [sortedHeaderName]);
 
   const onSortingHeaderChange = (header = "") => {
@@ -74,12 +78,6 @@ export default function TableComponent(props) {
     } else value && setPageNumber(parseInt(value));
   };
 
-  console.log(
-    "SEARCHED ITEM",
-    searchedItemList.length,
-    countryWiseCovidData.length
-  );
-
   const onSearchCountry = (e) => {
     setSearchCountry(e.target.value.toUpperCase());
     setTimeout(() => {
@@ -91,7 +89,7 @@ export default function TableComponent(props) {
   };
 
   return (
-    <div className="table-container" style={{ height: "60%", width: "40%" }}>
+    <div className="table-container" style={{ height: "100%", width: "80%" }}>
       <SearchBar
         searchCountry={searchCountry}
         onSearchCountry={onSearchCountry}
@@ -148,8 +146,7 @@ const SearchBar = ({ onSearchCountry, searchCountry = "" }) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        height: "5%",
-        padding: "2%",
+        height: 50,
       }}
     >
       <div
@@ -179,7 +176,7 @@ const SearchBar = ({ onSearchCountry, searchCountry = "" }) => {
         value={searchCountry}
         onChange={onSearchCountry}
         style={{
-          width: "90%",
+          width: "100%",
           backgroundColor: "rgba(108, 117, 124, 0.1)",
           border: 0,
           borderBottomRightRadius: 10,

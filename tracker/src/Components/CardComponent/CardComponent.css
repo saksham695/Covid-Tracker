@@ -1,0 +1,54 @@
+.card-container-TotalConfirmed{
+    width: 15%;
+    background-color: rgba(22,22,36,0.15);
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10;
+    justify-content: center;
+    align-content: center;
+    padding: 2%;
+  }
+
+  .card-container-TotalConfirmed:hover{
+    background-color:  rgba(12,69,131,0.2);
+  }
+
+  
+.card-container-TotalRecovered{
+    width: 15%;
+    background-color: rgba(22,22,36,0.15);
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10;
+    justify-content: center;
+    align-content: center;
+    padding: 2%;
+  }
+
+  .card-container-TotalRecovered:hover{
+    background-color:  rgba(0,166,82,0.2);
+  }
+
+  
+.card-container-TotalDeaths{
+    width: 15%;
+    background-color: rgba(22,22,36,0.15);
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10;
+    justify-content: center;
+    align-content: center;
+    padding: 2%;
+  }
+
+  .card-container-TotalDeaths:hover{
+    background-color:  rgba(254,0,65,0.2);
+
+  }
+
+.text-style{
+    text-align: "center";
+}
