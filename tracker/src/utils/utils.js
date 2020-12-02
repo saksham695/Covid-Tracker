@@ -94,7 +94,7 @@ export const GlobalCasesHeading = [
 ];
 
 export const chartData = [
-  { title: "Confirmed", value: 10, color: "rgba(12,69,131,0.1)" },
-  { title: "Recovered", value: 15, color: "rgba(0,166,82,0.1)" },
-  { title: "Deaths", value: 20, color: "rgba(254,0,65,0.1)" },
+  { title: "Confirmed", value: 10, color: "rgba(12,69,131,0.3)" },
+  { title: "Recovered", value: 15, color: "rgba(0,166,82,0.3)" },
+  { title: "Deaths", value: 20, color: "rgba(254,0,65,0.9)" },
 ];

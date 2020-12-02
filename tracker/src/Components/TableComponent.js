@@ -104,11 +104,18 @@ export default function TableComponent(props) {
             {searchedItemList.length === 0 && searchCountry.length !== 0 ? (
               <tbody>
                 <tr style={{ padding: "20%" }}>
-                  <td
-                    className="table-data"
-                    style={{ color: "red", padding: "35%", borderBottom: 0 }}
-                  >
-                    Invalid Country
+                  <td className="table-data">
+                    <h3
+                      style={{
+                        color: "red",
+                        padding: "30%",
+                        top: 0,
+                        marginBottom: "40%",
+                      }}
+                    >
+                      {" "}
+                      {searchCountry} Not Found
+                    </h3>
                   </td>
                 </tr>
               </tbody>

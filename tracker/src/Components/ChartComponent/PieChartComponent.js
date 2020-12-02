@@ -32,6 +32,7 @@ export default function PieChartComponent() {
         width: "100%",
         height: "100%",
         borderWidth: 0,
+        marginBottom: "5%",
       }}
     >
       <PieChart

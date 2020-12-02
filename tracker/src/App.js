@@ -34,21 +34,21 @@ export default function App() {
     globalCases[GlobalCasesKey[1]] +
     globalCases[GlobalCasesKey[2]];
   const TOTAL_PATIENTS = "Total Patient";
+  const COUNTRIES = "countries";
   return (
     <div style={{ height: "100vw", width: "100%" }}>
-      <div>
-        <div className="card-right-container">
-          {GlobalCasesKey.map((item, index) => (
-            <CardComponent
-              title={GlobalCasesHeading[index]}
-              cases={globalCases[item]}
-              casesKey={item}
-            />
-          ))}
-        </div>
+      <div className="card-right-container">
+        {GlobalCasesKey.map((item, index) => (
+          <CardComponent
+            title={GlobalCasesHeading[index]}
+            cases={globalCases[item]}
+            casesKey={item}
+          />
+        ))}
       </div>
+
       <div>
-        <h1 style={{ marginTop: "12%" }}>WORLD STATISTICS</h1>
+        <h1 style={{ marginTop: "-23%" }}>WORLD STATISTICS</h1>
         <div
           style={{
             flexDirection: "row",
@@ -57,7 +57,10 @@ export default function App() {
             alignContent: "center",
           }}
         >
-          <div className="card-left-container" style={{ marginTop: "20%" }}>
+          <div
+            className="card-left-container"
+            style={{ marginTop: "14%", borderRadius: 20, marginBottom: "2%" }}
+          >
             <h4 className="text-style">{TOTAL_PATIENTS.toUpperCase()}</h4>
             <h2 className="text-style">{numberWithCommas(totalPatients)}</h2>
           </div>
@@ -77,9 +80,10 @@ export default function App() {
           width: "100%",
           alignContent: "center",
           justifyContent: "center",
+          marginTop: "10%",
         }}
       >
-        <h2>COUNTRIES</h2>
+        <h2 className="text-style">{COUNTRIES.toUpperCase()}</h2>
         <div style={{ marginLeft: "20%" }}>
           <TableComponent />
         </div>

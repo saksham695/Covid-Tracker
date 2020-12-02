@@ -28,12 +28,13 @@ z-index: 100;
 .card-left-container{ 
   flex-direction: column;
   display: flex  ;
- border-bottom: 2px solid  rgb(158, 216, 228);
- 
+  justify-content: first baseline;
+  align-items: center;
+
 }
 
 .text-style{
-  color: rgb(158, 216, 228);
+  color: rgb(183, 183, 184,0.2);
   text-align: "center";
 }
 /* demo styles */
