@@ -15,6 +15,7 @@ import {
 } from "./utils/utils";
 
 import "./App.css";
+import { ACTIONS } from "./store/action";
 
 export default function App() {
   const [{ globalCases }, dispatch] = useStateValue();
@@ -26,7 +27,7 @@ export default function App() {
         url: `/summary`,
       }).then((res) =>
         dispatch({
-          type: "add",
+          type: ACTIONS.FILL_DATA,
           payload: res.data,
         })
       );

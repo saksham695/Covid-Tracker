@@ -4,6 +4,7 @@ import {
   compareByTotalRecovered,
   compareCountry,
 } from "../utils/utils";
+import { ACTIONS } from "./action";
 
 export const initialState = {
   countryWiseCovidData: [],
@@ -15,37 +16,37 @@ export const reducer = (state, action) => {
   const { payload, type } = action;
 
   switch (type) {
-    case "add":
+    case ACTIONS.FILL_DATA:
       return {
         ...state,
         countryWiseCovidData: payload.Countries,
         globalCases: payload.Global,
       };
-    case "Confirmed": {
+    case ACTIONS.CONFIRMED: {
       return {
         ...state,
         countryWiseCovidData: action.payload.sort(compareByTotalDiseased),
       };
     }
-    case "Recovered": {
+    case ACTIONS.RECOVERED: {
       return {
         ...state,
         countryWiseCovidData: action.payload.sort(compareByTotalRecovered),
       };
     }
-    case "Death": {
+    case ACTIONS.DEATH: {
       return {
         ...state,
         countryWiseCovidData: action.payload.sort(compareByTotalDeaths),
       };
     }
-    case "Country": {
+    case ACTIONS.DEATH: {
       return {
         ...state,
         countryWiseCovidData: action.payload.sort(compareCountry),
       };
     }
-    case "Search": {
+    case ACTIONS.SEARCH_COUNTER: {
       return {
         ...state,
         searchedItemList:

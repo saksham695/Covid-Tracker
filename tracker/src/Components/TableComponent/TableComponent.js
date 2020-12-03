@@ -6,6 +6,7 @@ import TableFooter from "./TableFooter";
 import "./TableComponent.css";
 import TableData from "./TableData";
 import { tableHeaders } from "../../utils/utils";
+import { ACTIONS } from "../../store/action";
 
 export default function TableComponent(props) {
   const [
@@ -82,7 +83,7 @@ export default function TableComponent(props) {
     setSearchCountry(e.target.value.toUpperCase());
     setTimeout(() => {
       dispatch({
-        type: "Search",
+        type: ACTIONS.SEARCH_COUNTER,
         payload: e.target.value.toUpperCase(),
       });
     }, 100);
