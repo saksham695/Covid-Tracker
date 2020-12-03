@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import TableHeader from "./TableHeader";
-import { useStateValue } from "../StateProvider";
+import { useStateValue } from "../../StateProvider";
 import TableFooter from "./TableFooter";
 
 import "./TableComponent.css";
 import TableData from "./TableData";
-import { tableHeaders } from "../utils/utils";
+import { tableHeaders } from "../../utils/utils";
 
 export default function TableComponent(props) {
   const [

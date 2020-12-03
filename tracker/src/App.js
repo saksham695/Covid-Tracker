@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import axios from "./axios";
 import { useStateValue } from "./StateProvider";
 import "./App.css";
-import TableComponent from "./Components/TableComponent";
+import TableComponent from "./Components/TableComponent/TableComponent";
 import CardComponent from "./Components/CardComponent/CardComponent";
 import {
   GlobalCasesHeading,
