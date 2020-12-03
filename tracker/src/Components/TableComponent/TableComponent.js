@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TableHeader from "./TableHeader";
-import { useStateValue } from "../../StateProvider";
+import { useStateValue } from "../../store/StateProvider";
 import TableFooter from "./TableFooter";
 
 import "./TableComponent.css";

@@ -1,6 +1,6 @@
 import React, { useState, ComponentProps } from "react";
 import { PieChart } from "react-minimal-pie-chart";
-import { useStateValue } from "../../StateProvider";
+import { useStateValue } from "../../store/StateProvider";
 import {
   chartData,
   GlobalCasesKey,

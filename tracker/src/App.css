@@ -1,28 +1,27 @@
 
 h1{
-  font-size: 30px;
   color: #fff;
-  text-transform: uppercase;
+  font-size: 30px;
   font-weight: 300;
-  text-align: center;
   margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .header-container{position: -webkit-sticky;
+align-items: center;
 position: sticky;
 top: 0;
-align-items: center;
 z-index: 100;
 }
 
 .card-right-container{
-  height: 40%;
-  width: 100%;
   display: flex;
   flex-direction: row;
+  height: 40%;
   justify-content: space-around;
   margin: "10%";
- 
+  width: 100%;
 }
 
 .card-left-container{ 
@@ -38,7 +37,21 @@ z-index: 100;
   text-align: "center";
   font-weight: 600;
 }
-/* demo styles */
+
+.middle-component-container{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -8%;
+}
+
+.pie-char-container{ 
+  display: flex;
+  flex-direction: row;
+  padding-top: 10% ;
+}
+
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body{

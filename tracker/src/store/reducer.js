@@ -3,7 +3,7 @@ import {
   compareByTotalDiseased,
   compareByTotalRecovered,
   compareCountry,
-} from "./utils/utils";
+} from "../utils/utils";
 
 export const initialState = {
   countryWiseCovidData: [],

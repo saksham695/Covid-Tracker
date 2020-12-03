@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import axios from "./axios";
+import axios from "./Api/axios";
 import CardComponent from "./Components/CardComponent/CardComponent";
 import PieChartComponent from "./Components/ChartComponent/PieChartComponent";
 import TableComponent from "./Components/TableComponent/TableComponent";
 
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "./store/StateProvider";
 import {
   COUNTRIES,
   GlobalCasesHeading,
@@ -55,15 +55,7 @@ export default function App() {
 
 const renderMiddleSection = (totalPatients = 0) => {
   return (
-    <div
-      style={{
-        flexDirection: "row",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "flex-start",
-        marginTop: "-8%",
-      }}
-    >
+    <div className="middle-component-container">
       <div
         className="card-left-container"
         style={{ marginTop: "14%", borderRadius: 20, marginBottom: "2%" }}
@@ -76,7 +68,7 @@ const renderMiddleSection = (totalPatients = 0) => {
         </h1>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "row", paddingTop: "10%" }}>
+      <div className="pie-char-container">
         <PieChartComponent />
       </div>
     </div>
