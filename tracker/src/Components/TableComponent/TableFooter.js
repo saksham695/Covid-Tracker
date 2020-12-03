@@ -1,4 +1,5 @@
 import React from "react";
+
 import IconComponent from "./IconComponent";
 import PageNumberComponent from "./PageNumberComponent";
 
@@ -17,34 +18,34 @@ export default function TableFooter({
     pageNumber >= totalPages ? "grey" : "rgba(7,94,181,0.7)";
   const tableFooterData = [
     {
+      iconColor: FIRST_PAGE_COLOR_ICON_COLOR,
       iconName: "first_page",
-      iconColor: FIRST_PAGE_COLOR_ICON_COLOR,
-      type: "icon",
       onPageNumberChange: setFirstPage,
+      type: "icon",
     },
     {
-      iconName: "chevron_left",
       iconColor: FIRST_PAGE_COLOR_ICON_COLOR,
-      type: "icon",
+      iconName: "chevron_left",
       onPageNumberChange: decrementPageNumber,
+      type: "icon",
     },
     {
-      iconName: "",
       iconColor: "",
-      type: "text",
+      iconName: "",
       onPageNumberChange: setSearchedPage,
+      type: "text",
     },
     {
+      iconColor: LAST_PAGE_COLOR_ICON_COLOR,
       iconName: "chevron_right",
-      iconColor: LAST_PAGE_COLOR_ICON_COLOR,
-      type: "icon",
       onPageNumberChange: incrementPageNumber,
+      type: "icon",
     },
     {
-      iconName: "last_page",
       iconColor: LAST_PAGE_COLOR_ICON_COLOR,
-      type: "icon",
+      iconName: "last_page",
       onPageNumberChange: setLastPage,
+      type: "icon",
     },
   ];
 
@@ -55,17 +56,17 @@ export default function TableFooter({
           ({ iconName, iconColor, type, onPageNumberChange }) =>
             type === "icon" ? (
               <IconComponent
-                key={iconName}
-                iconName={iconName}
                 iconColor={iconColor}
+                iconName={iconName}
+                key={iconName}
                 onPageNumberChange={onPageNumberChange}
               />
             ) : (
               <PageNumberComponent
                 key={iconName}
+                onPageNumberChange={onPageNumberChange}
                 pageNumber={pageNumber}
                 totalPages={totalPages}
-                onPageNumberChange={onPageNumberChange}
               />
             )
         )}
@@ -76,13 +77,13 @@ export default function TableFooter({
   return (
     <div
       style={{
-        marginTop: "1%",
-        height: 50,
-        display: "flex",
-        paddingTop: "2%",
-        paddingBottom: "1%",
-        flexDirection: "row",
         backgroundColor: " rgba(108, 117, 124,0.2)",
+        display: "flex",
+        flexDirection: "row",
+        height: 50,
+        marginTop: "1%",
+        paddingBottom: "1%",
+        paddingTop: "2%",
       }}
     >
       {renderFooterComponent(tableFooterData)}

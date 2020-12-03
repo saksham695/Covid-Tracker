@@ -1,13 +1,13 @@
 .card-container-TotalConfirmed{
-    width: 15%;
+    align-content: center;
     background-color: rgba(22,22,36,0.15);
-    height: 30%;
+    border-radius: 10;
     display: flex;
     flex-direction: column;
-    border-radius: 10;
+    height: 30%;
     justify-content: center;
-    align-content: center;
     padding: 2%;
+    width: 15%;
   }
 
   .card-container-TotalConfirmed:hover{
@@ -16,15 +16,15 @@
 
   
 .card-container-TotalRecovered{
-    width: 15%;
+    align-content: center;
     background-color: rgba(22,22,36,0.15);
-    height: 30%;
+    border-radius: 10;
     display: flex;
     flex-direction: column;
-    border-radius: 10;
+    height: 30%;
     justify-content: center;
-    align-content: center;
     padding: 2%;
+    width: 15%;
   }
 
   .card-container-TotalRecovered:hover{
@@ -33,15 +33,15 @@
 
   
 .card-container-TotalDeaths{
-    width: 15%;
+    align-content: center;
     background-color: rgba(22,22,36,0.15);
-    height: 30%;
+    border-radius: 10;
     display: flex;
     flex-direction: column;
-    border-radius: 10;
+    height: 30%;
     justify-content: center;
-    align-content: center;
     padding: 2%;
+    width: 15%;
   }
 
   .card-container-TotalDeaths:hover{

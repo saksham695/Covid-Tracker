@@ -4,12 +4,13 @@ import {
   compareByTotalRecovered,
   compareCountry,
 } from "../utils/utils";
+
 import { ACTIONS } from "./action";
 
 export const initialState = {
   countryWiseCovidData: [],
-  searchedItemList: [],
   globalCases: {},
+  searchedItemList: [],
 };
 
 export const reducer = (state, action) => {

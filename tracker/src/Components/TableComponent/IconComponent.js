@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./IconComponent.css";
+
 export default function IconComponent({
   iconName = "",
   iconColor = "",

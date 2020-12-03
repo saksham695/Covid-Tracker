@@ -1,16 +1,15 @@
-.icon-container{
-      width: 20%;
-        height: 80%;
-        background-color:  rgba(21,29,50,0.2);
-        margin-left: 1.5%;
-        margin-right: 1%;
-        display: flex;
-        justify-content: center;
-        align-items:  center;
-        cursor: pointer;
-       
-      }
-.icon-container:hover{
-  background-color:  rgba(21, 29, 50, 0.6);
-    
+.icon-container {
+  align-items: center;
+  background-color: rgba(21, 29, 50, 0.2);
+  cursor: pointer;
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  margin-left: 1.5%;
+  margin-right: 1%;
+  width: 20%;
+}
+
+.icon-container:hover {
+  background-color: rgba(21, 29, 50, 0.6);
 }

@@ -1,8 +1,8 @@
 export const ACTIONS = {
-  FILL_DATA: "FILL_DATA",
-  SEARCH_COUNTRY: "SEARCH_COUNTRY",
-  COUNTRY: "Country",
   CONFIRMED: "Confirmed",
-  RECOVERED: "Recovered",
+  COUNTRY: "Country",
   DEATH: "Death",
+  FILL_DATA: "FILL_DATA",
+  RECOVERED: "Recovered",
+  SEARCH_COUNTRY: "SEARCH_COUNTRY",
 };

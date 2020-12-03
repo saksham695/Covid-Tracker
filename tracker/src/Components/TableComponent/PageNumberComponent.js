@@ -5,11 +5,10 @@ export default function PageNumberComponent({
   totalPages = 0,
   onPageNumberChange,
 }) {
-  const [newPageNumber, setNewPageNumber] = useState(pageNumber);
-
   const onChange = (e) => {
     onPageNumberChange(`${e.target.value}`);
   };
+
   return (
     <div
       style={{

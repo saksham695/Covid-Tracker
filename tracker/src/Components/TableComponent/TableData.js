@@ -17,7 +17,6 @@ export default function TableData({
             ({
               Country,
               CountryCode,
-              NewConfirmed,
               TotalConfirmed,
               TotalDeaths,
               TotalRecovered,

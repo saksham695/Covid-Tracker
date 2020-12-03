@@ -11,13 +11,13 @@ export default function SearchBar({ onSearchCountry, searchCountry = "" }) {
     >
       <div
         style={{
-          height: "100%",
-          backgroundColor: "rgba(108, 117, 124, 0.1)",
-          borderTopLeftRadius: 10,
-          borderBottomLeftRadius: 10,
-          display: "flex",
-          justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "rgba(108, 117, 124, 0.1)",
+          borderBottomLeftRadius: 10,
+          borderTopLeftRadius: 10,
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
         }}
       >
         <i
@@ -36,11 +36,11 @@ export default function SearchBar({ onSearchCountry, searchCountry = "" }) {
         value={searchCountry}
         onChange={onSearchCountry}
         style={{
-          width: "100%",
           backgroundColor: "rgba(108, 117, 124, 0.1)",
           border: 0,
           borderBottomRightRadius: 10,
           borderTopRightRadius: 10,
+          width: "100%",
         }}
       ></input>
     </div>

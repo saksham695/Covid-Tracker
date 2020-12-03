@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
-import TableHeader from "./TableHeader";
-import { useStateValue } from "../../store/StateProvider";
+
+import SearchBar from "./SearchBar";
+import TableData from "./TableData";
 import TableFooter from "./TableFooter";
+import TableHeader from "./TableHeader";
+import { ACTIONS } from "../../store/action";
+import { tableHeaders } from "../../utils/utils";
+import { useStateValue } from "../../store/StateProvider";
 
 import "./TableComponent.css";
-import TableData from "./TableData";
-import { tableHeaders } from "../../utils/utils";
-import { ACTIONS } from "../../store/action";
-import SearchBar from "./SearchBar";
 
 export default function TableComponent(props) {
   const [
     { countryWiseCovidData, searchedItemList },
     dispatch,
   ] = useStateValue();
+
   const [pageNumber, setPageNumber] = useState(0);
   const [lastPage, setLastPageNumber] = useState(0);
   const [searchCountry, setSearchCountry] = useState("");
   const [sortedHeaderName, setSortedHeaderName] = useState("");
+
   const FIRST_PAGE = 1;
   const DATA_PER_PAGE = 7;
 

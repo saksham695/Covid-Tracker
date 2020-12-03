@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./TableComponent.css";
+
 export default function TableHeader({
   tableHeaders = [],
   onSortingHeaderChange,
@@ -12,9 +14,9 @@ export default function TableHeader({
             <th className="table-heading" key={index}>
               <div
                 style={{
+                  cursor: "pointer",
                   display: "flex",
                   flexDirection: "row",
-                  cursor: "pointer",
                 }}
                 onClick={() => onSortingHeaderChange(heading)}
               >
