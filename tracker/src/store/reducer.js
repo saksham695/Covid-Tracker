@@ -40,13 +40,13 @@ export const reducer = (state, action) => {
         countryWiseCovidData: action.payload.sort(compareByTotalDeaths),
       };
     }
-    case ACTIONS.DEATH: {
+    case ACTIONS.COUNTRY: {
       return {
         ...state,
         countryWiseCovidData: action.payload.sort(compareCountry),
       };
     }
-    case ACTIONS.SEARCH_COUNTER: {
+    case ACTIONS.SEARCH_COUNTRY: {
       return {
         ...state,
         searchedItemList:

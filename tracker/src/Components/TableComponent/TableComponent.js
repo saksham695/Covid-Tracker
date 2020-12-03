@@ -84,7 +84,7 @@ export default function TableComponent(props) {
     setSearchCountry(e.target.value.toUpperCase());
     setTimeout(() => {
       dispatch({
-        type: ACTIONS.SEARCH_COUNTER,
+        type: ACTIONS.SEARCH_COUNTRY,
         payload: e.target.value.toUpperCase(),
       });
     }, 100);
