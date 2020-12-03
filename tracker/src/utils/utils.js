@@ -98,3 +98,7 @@ export const chartData = [
   { title: "Recovered", value: 15, color: "rgba(0,166,82,0.3)" },
   { title: "Deaths", value: 20, color: "rgba(254,0,65,0.9)" },
 ];
+
+export const TOTAL_PATIENTS = "Total Patients";
+export const COUNTRIES = "countries";
+export const WORLD_STATISTICS = "world statistics";
