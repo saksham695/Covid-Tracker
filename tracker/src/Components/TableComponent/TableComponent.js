@@ -7,6 +7,7 @@ import "./TableComponent.css";
 import TableData from "./TableData";
 import { tableHeaders } from "../../utils/utils";
 import { ACTIONS } from "../../store/action";
+import SearchBar from "./SearchBar";
 
 export default function TableComponent(props) {
   const [
@@ -106,23 +107,7 @@ export default function TableComponent(props) {
         <div className="tbl-content">
           <table cellPadding="0" cellSpacing="0" border="0">
             {searchedItemList.length === 0 && searchCountry.length !== 0 ? (
-              <tbody>
-                <tr style={{ padding: "20%" }}>
-                  <td className="table-data">
-                    <h3
-                      style={{
-                        color: "red",
-                        padding: "30%",
-                        top: 0,
-                        marginBottom: "40%",
-                      }}
-                    >
-                      {" "}
-                      {searchCountry} Not Found
-                    </h3>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody>{renderErrorComponent(searchCountry)}</tbody>
             ) : (
               <tbody>
                 <TableData
@@ -151,49 +136,16 @@ export default function TableComponent(props) {
   );
 }
 
-const SearchBar = ({ onSearchCountry, searchCountry = "" }) => {
+const renderErrorComponent = (searchCountry) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        height: 50,
-      }}
-    >
-      <div
+    <tr style={{ padding: "20%" }}>
+      <h3
         style={{
-          height: "100%",
-          backgroundColor: "rgba(108, 117, 124, 0.1)",
-          borderTopLeftRadius: 10,
-          borderBottomLeftRadius: 10,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          color: "red",
         }}
       >
-        <i
-          className="material-icons"
-          style={{
-            color: "rgba(108, 117, 124, 0.8)",
-          }}
-        >
-          {" "}
-          search
-        </i>
-      </div>
-      <input
-        type="text"
-        placeholder="Country Name"
-        value={searchCountry}
-        onChange={onSearchCountry}
-        style={{
-          width: "100%",
-          backgroundColor: "rgba(108, 117, 124, 0.1)",
-          border: 0,
-          borderBottomRightRadius: 10,
-          borderTopRightRadius: 10,
-        }}
-      ></input>
-    </div>
+        {searchCountry} Country Not Found
+      </h3>
+    </tr>
   );
 };
