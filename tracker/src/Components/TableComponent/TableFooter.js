@@ -55,12 +55,14 @@ export default function TableFooter({
           ({ iconName, iconColor, type, onPageNumberChange }) =>
             type === "icon" ? (
               <IconComponent
+                key={iconName}
                 iconName={iconName}
                 iconColor={iconColor}
                 onPageNumberChange={onPageNumberChange}
               />
             ) : (
               <PageNumberComponent
+                key={iconName}
                 pageNumber={pageNumber}
                 totalPages={totalPages}
                 onPageNumberChange={onPageNumberChange}

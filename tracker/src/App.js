@@ -40,18 +40,21 @@ export default function App() {
     globalCases[GlobalCasesKey[1]] +
     globalCases[GlobalCasesKey[2]];
 
-  return (
-    <div style={{ height: "100vw", width: "100%" }}>
-      {renderTopComponent(globalCases)}
-      <div>
-        <h1 style={{ marginTop: "-23%", fontWeight: "bolder" }}>
-          {WORLD_STATISTICS.toUpperCase()}
-        </h1>
-        {renderMiddleSection(totalPatients)}
+  if (!globalCases) {
+    return <div>LOADING</div>;
+  } else
+    return (
+      <div style={{ height: "100vw", width: "100%" }}>
+        {renderTopComponent(globalCases)}
+        <div>
+          <h1 style={{ marginTop: "-23%", fontWeight: "bolder" }}>
+            {WORLD_STATISTICS.toUpperCase()}
+          </h1>
+          {renderMiddleSection(totalPatients)}
+        </div>
+        {renderTable()}
       </div>
-      {renderTable()}
-    </div>
-  );
+    );
 }
 
 const renderMiddleSection = (totalPatients = 0) => {
@@ -102,6 +105,7 @@ const renderTopComponent = (globalCases) => {
     <div className="card-right-container">
       {GlobalCasesKey.map((item, index) => (
         <CardComponent
+          key={index}
           title={GlobalCasesHeading[index]}
           cases={globalCases[item]}
           casesKey={item}
